@@ -43,7 +43,13 @@ switch (action) {
     break;
 
   case "movie-this":
+    if (value == ""){
+      omdbAPI("Mr.Nobody",omdbApi);
+      console.log("If you haven't watched 'Mr. Nobody' then you should: <http://www.imdb.com/title/tt0485947/>");
+      console.log("It's on Netflix!");
+    } else{
     omdbAPI(value, omdbApi);
+  }
     break;
 
   case "do-what-it-says":
