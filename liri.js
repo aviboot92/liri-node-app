@@ -122,7 +122,7 @@ function omdbAPI(value, omdbApi) {
 function randomText(){
   fs.readFile("random.txt", "utf8", function(err, data) {
     var hamsa = "";
-    console.log("FUNCTION ENTERD");
+    // console.log("FUNCTION ENTERD");
     if (err) {
       return console.log(err);
     }
