@@ -1,5 +1,7 @@
 require("dotenv").config();
 var keys = require('./keys');
+// Includes the FS package for reading and writing packages
+var fs = require("fs");
 var request = require("request");
 var Twitter = require('twitter');
 var client = new Twitter(keys.twitter);
@@ -9,6 +11,10 @@ var action = process.argv[2];
 var nodeArgs = process.argv;
 var value = "";
 var omdbApi = keys.omdb.OMDb_API;
+
+
+
+
 // Evaluating Value of "value" variable
 if (action == "movie-this") {
   for (var i = 3; i < nodeArgs.length; i++) {
@@ -53,7 +59,7 @@ switch (action) {
     break;
 
   case "do-what-it-says":
-    lotto();
+  randomText();
     break;
 }
 // Twitter Node Programme
@@ -110,6 +116,30 @@ function omdbAPI(value, omdbApi) {
     }
   });
 };
+
+// Running the readFile module that's inside of fs.
+// Stores the read information into the variable "data"
+function randomText(){
+  fs.readFile("random.txt", "utf8", function(err, data) {
+    var hamsa = "";
+    console.log("FUNCTION ENTERD");
+    if (err) {
+      return console.log(err);
+    }
+    // Break the string down by comma separation and store the contents into the output array.
+    var output = data.split(",");
+      // Print each element (item) of the array/
+      hamsa = output[1];
+      spotifyAPI(hamsa);  
+    });
+  };
+
+
+
+  
+ 
+   
+
 
 
 
