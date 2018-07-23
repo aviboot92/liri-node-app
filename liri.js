@@ -12,9 +12,6 @@ var nodeArgs = process.argv;
 var value = "";
 var omdbApi = keys.omdb.OMDb_API;
 
-
-
-
 // Evaluating Value of "value" variable
 if (action == "movie-this") {
   for (var i = 3; i < nodeArgs.length; i++) {
